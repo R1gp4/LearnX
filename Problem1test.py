@@ -13,3 +13,10 @@ for sub in s:
 	count += 1
 
 print(count)
+#prints all characters.... not what I wanted.
+
+count = 0
+for sub in s[0:2]:
+	count += 1
+print(count)
+
