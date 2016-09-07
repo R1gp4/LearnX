@@ -2,11 +2,11 @@ s = 'boblkjbobjlksdbobobobjflksjdfowejajajssssss'
 count = 0
 word = 'bob'
 for i in range(len(s)):
-	print(s[i:i+3])
+	#print(s[i:i+3])
 	if s[i:i+3] == word:
 		count += 1
 
-print(count)
+print("Number of times 'bob' occurs is: ", count)
 
 
 
