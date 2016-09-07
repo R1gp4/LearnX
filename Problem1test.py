@@ -1,3 +1,16 @@
+s = 'boblkjbobjlksdbobobobjflksjdfowejajajssssss'
+count = 0
+word = 'bob'
+for i in range(len(s)):
+	print(s[i:i+3])
+	if s[i:i+3] == word:
+		count += 1
+
+print(count)
+
+
+
+#Tries
 '''
 s = 'boboboboblalala'
 word = 'bob'
@@ -67,7 +80,7 @@ while(s[0:3] == word):
 		
 print(count) 
 
-'''
+
 s = 'boblkjbobjlksdbobobobjflksjdfowejajajssssss'
 count = 0
 a = 0
@@ -75,9 +88,12 @@ x = 3
 print(s[a:x])
 
 word = 'bob'
-for n in range(a,x):
-	
+for n in range(len(word)):
+	if s[a:x] == word:
 		count += 1
+		x += 1
+		a += 1
+	else: 
 		x += 1
 		a += 1
 	
@@ -88,6 +104,18 @@ print(s[a:x])
 print(count)
 
 
+s = 'boblkjbobjlksdbobobobjflksjdfowejajajssssss'
+count = 0
+word = 'bob'
+for i in range(len(s)):
+	print(s[i:i+3])
+	if s[i:i+3] == word:
+		count += 1
 
+print(count)
+
+
+
+'''
 
 	
