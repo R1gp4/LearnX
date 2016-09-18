@@ -27,12 +27,12 @@ Longest substring in alphabetical order is: abc
 ================= TRY ONE =================================
 
 string = randomlettersinnonalphabeticalorder
-word  = abcdefghijklmnopqrstuvwxyz
+alphabet  = abcdefghijklmnopqrstuvwxyz
 
 look in length of string, character by character, until end.
-see if character corresponds with part of word. 
+see if character corresponds with character in alphabet. 
 if yes, 
-see if next character corresponds to word, this time only looking at the characters in string that come after.
+see if next character corresponds to alphabet, 
 
 answer is:  
 print answer
