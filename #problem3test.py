@@ -35,7 +35,5 @@ if yes, print letter, and  look in the rest of the string
 see if next character corresponds to alphabet, 
 if not move to the next character in the string.
 
-answer is:  
-print answer
 
 '''
