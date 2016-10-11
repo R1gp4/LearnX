@@ -148,47 +148,49 @@ def hangman(secretWord):
     lettersGuessed  = ''
     turns_left = 8
     guessed = False
-    answer = ['_'] * len(secretWord)
+    answer = ['_ '] * len(secretWord)
+    availableLetters = 26
 
     print("Welcome to the game, Hangman!")
     print(
         "I am thinking of a word that is {} letters long."
         .format(len(secretWord))
     )
-    print("-------------")
+
    
     while not guessed and turns_left > 0:
 
         if isWordGuessed(secretWord, lettersGuessed):
             break
-
-        print("You have {} guesses left." .format(turns_left))
-        print("Available letters: " +str(getAvailableLetters(lettersGuessed)))
+        print("-------------")
+        print("You have {} guesses left" .format(turns_left))
+        print("Available Letters: " +str(getAvailableLetters(lettersGuessed)))
         guess = input("Please guess a letter: " )
+        guessLower = guess.lower()
         
         
-
-
-        if guess not in secretWord and guess not in lettersGuessed:  
-            print("Oops! That letter is not in my word: " +str(getGuessedWord(secretWord, lettersGuessed)))
+        if guessLower not in secretWord and guess not in lettersGuessed:  
+            print("Oops! That letter is not in my word: " +''.join(answer))
             turns_left -= 1
             lettersGuessed += guess
+            availableLetters -= 1
 
 
-        elif guess in lettersGuessed:
-            print("Oops! You've already guessed that letter: " +getAvailableLetters(lettersGuessed))
+        elif guessLower in lettersGuessed:
+            print("Oops! You've already guessed that letter: " +''.join(answer) )
            
 
-        elif guess in secretWord:
+        elif guessLower in secretWord:
             for index, letter in enumerate(secretWord):
                 if letter == guess:
                     answer[index] = letter
             print("Good guess: " +''.join(answer))
             lettersGuessed += guess
+            availableLetters -= 1
 
     if turns_left == 0:
         print("-------------")
-        print("Sorry, you ran out of guesses. The word was " +str(secretWord) ".")
+        print("Sorry, you ran out of guesses. The word was " +str(secretWord) + ".")
 
     else:
         print("-------------")
