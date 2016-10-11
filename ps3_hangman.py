@@ -81,17 +81,17 @@ def getGuessedWord(secretWord, lettersGuessed):
     
     # FILL IN YOUR CODE HERE...
     # subsitute x with lettersGuessed?
-    x = ''
+    lettersGuessed = ''
     
     for i in range(0, len(secretWord)):
         
         if secretWord[i] in lettersGuessed:
-            x += secretWord[i]
+            lettersGuessed += secretWord[i]
         
         else:
-            x += '_ '
+            lettersGuessed += '_ '
             
-    return(x)
+    return(lettersGuessed)
 
 
 
@@ -139,9 +139,10 @@ def hangman(secretWord):
     # FILL IN YOUR CODE HERE...
     
 
+
+    lettersGuessed  = ''
     turns_left = 8
     guessed = False
-    lettersGuessed  = ''
 
     print("Welcome to the game, Hangman!")
     print(
@@ -160,7 +161,7 @@ def hangman(secretWord):
             print("Good guess:" +str(getGuessedWord(secretWord, lettersGuessed)))
 
         if guess in lettersGuessed:
-            print("Oops! You've already guessed that letter: ", lettersGuessed)
+            print("Oops! You've already guessed that letter: " +str(lettersGuessed))
             turns_left -= 1
 
         if guess not in secretWord and guess not in lettersGuessed:  
