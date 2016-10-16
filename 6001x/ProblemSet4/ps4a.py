@@ -71,7 +71,22 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    score = 0
+    # always good to set a start value, I keep forgetting that.
+
+    for i in word:
+    # we want to acces/iterate over the individual characters in the word, not 
+         score += SCRABBLE_LETTER_VALUES[i]
+         # you can access a dictionary the same 
+         # way you index a string apparently. since the keys are the letters of the alphabet
+    score *= len(word)
+    
+    if len(word) == n:
+        score += 50
+
+    return score 
+
+
 
 
 
@@ -114,12 +129,12 @@ def dealHand(n):
     numVowels = n // 3
     
     for i in range(numVowels):
-        x = VOWELS[random.randrange(0,len(VOWELS))]
+        x = VOWELS[random.randrange(0,len(VOWELS))] # interesting it doesn't use the variable 'i' anywhere.
         hand[x] = hand.get(x, 0) + 1
         
     for i in range(numVowels, n):    
         x = CONSONANTS[random.randrange(0,len(CONSONANTS))]
-        hand[x] = hand.get(x, 0) + 1
+        hand[x] = hand.get(x, 0) + 1   # nary a clue what this does
         
     return hand
 
@@ -142,7 +157,21 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    uHand = hand.copy()
+
+    # the letters in the entered 'word' will not be appended to uHand. 
+    # so if the letters in hand are not  in word, append to uHand.
+    # default_data['item3'] = 3
+
+    
+    for letter in word:
+        if letter in hand:
+            if uHand[letter] > 1:
+                uHand[letter] -= 1
+            else: 
+                uHand.pop(letter)
+
+    return(uHand)
 
 
 
