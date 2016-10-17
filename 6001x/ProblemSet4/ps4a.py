@@ -189,8 +189,28 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
+    r = 0
+    h = getFrequencyDict(word)
+    for i in word:
+        if i not in hand :
+            return(False)
+        else:
+            if hand[i] < h[i]:
+                return(False)
+            else:
+                r = 1 
+    if r == 1:
+        if word in wordList:
+            return(True)
+        else:
+            return(False)     
+    # h = getFrequencyDict(word)
+    # for i in word:
+    #     if i not in hand:
+    #         return(False)
+    #     else:
+    #         if hand[i] < h[i]:
+    #             return(False)     
 
 #
 # Problem #4: Playing a hand
@@ -203,7 +223,11 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    L = 0
+    for i in hand.values():
+        L += i
+       
+    return(L)
 
 
 
@@ -229,36 +253,54 @@ def playHand(hand, wordList, n):
       n: integer (HAND_SIZE; i.e., hand size required for additional points)
       
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
+    
     # Keep track of the total score
+    totalScore = 0
     
+
     # As long as there are still letters left in the hand:
-    
+    while calculateHandlen(hand) > 0:
         # Display the hand
-        
+        print("Current hand: ", end="")
+        displayHand(hand)
         # Ask user for input
+        word = input('Enter word, or a "." to indicate that you are finished:  ' ) 
         
         # If the input is a single period:
-        
+        if word == ".":
             # End the game (break out of the loop)
-
+            break 
             
         # Otherwise (the input is not a single period):
-        
+        else:
             # If the word is not valid:
-            
+            if isValidWord(word, hand, wordList) == False:
+
                 # Reject invalid word (print a message followed by a blank line)
+                print("Invalid word, please try again.")
+                print()
 
             # Otherwise (the word is valid):
-
-                # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
+            else:
+                currentScore = getWordScore(word, n)
+                totalScore += currentScore
+                 # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
+                print(str(word) + " earned " + str(currentScore) + " points. Total: " +str(totalScore) + " points" )
+                print()
                 
                 # Update the hand 
+                hand = updateHand(hand, word)
                 
-
+    if calculateHandlen(hand) == 0:
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+        print("Run out of letters. Total score: " +str(totalScore) + " points. " )    
+
+    else:
+        print("Goodbye! Total score : ", totalScore, " points." )
 
 
+wordList = loadWords() 
+playHand({'h':1, 'e':1, 'i':1, 't':1, 'l':2, 'o':1}, wordList, 7)
 #
 # Problem #5: Playing a game
 # 
