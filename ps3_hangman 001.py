@@ -82,6 +82,7 @@ def getGuessedWord(secretWord, lettersGuessed):
     # FILL IN YOUR CODE HERE...
     # subsitute x with lettersGuessed?
     lettersGuessed = ''
+    
     letters=[secretWord[0]]
     
     for i in range(0, len(secretWord)):
@@ -157,7 +158,6 @@ def hangman(secretWord):
         print("You have {} guesses left." .format(turns_left))
         print("Available letters: " +str(getAvailableLetters(lettersGuessed)))
         guess = input("Please guess a letter: " )
-        guess = guess.lower()
 
         if guess in secretWord:
             print("Good guess:" +str(getGuessedWord(secretWord, lettersGuessed)))
@@ -174,7 +174,6 @@ def hangman(secretWord):
             break
 
     if turns_left == 0:
-        print("-------------")
         print("Sorry, you ran out of guesses. The word was" +str(secretWord))
 
     print("-------------")
