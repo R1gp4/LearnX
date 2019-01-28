@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 		  }
 		},
 		jshint: {
-	  	  files: ['js/values.js', 'js/prompt.js'],
+	  	  files: ['js/values.js', 'js/prompt.js', 'js/getImages.js'],
 		},
 		watch: {
 			files: ['<%= jshint.files %>', 'manifest.json'],
