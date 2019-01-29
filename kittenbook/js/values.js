@@ -14,5 +14,5 @@ var currentTime = currentDate.getFullYear() + '-' + 	// set year
 var kbValues = {
 			projectName: 'Kittelboek',
 			versionNumber: '0.0.2',
-			currentTime: ['just now']
+			currentTime : 'just now'
 };
