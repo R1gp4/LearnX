@@ -12,7 +12,7 @@ var currentTime = currentDate.getFullYear() + '-' + 	// set year
 			currentDate.getSeconds();    // set seconds
 
 var kbValues = {
-			projectName: 'Kittelboek',
+			projectName: 'Kittelboekje',
 			versionNumber: '0.0.2',
-			currentTime : 'just now'
+			currentTime: currentTime
 };
