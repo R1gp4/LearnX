@@ -1,4 +1,7 @@
+// Get the user's name
 var userName = prompt('Hello, what\'s your name?');
-document.body.innerHTML = '<h1> Hello, ' + userName + '! </h1>' +
-				'<p>' + kbValues.projectName + ' ' + kbValues.versionNumber +
-				' accessed on: ' + kbValues.currentTime + '</p>';
+
+// Get the user's number
+var getPhoneNumber = prompt('Hey love, what\'s your phone number?');
+
+//Get the user's location based on phone versionNumber

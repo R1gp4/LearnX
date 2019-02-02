@@ -16,11 +16,3 @@ var kbValues = {
 			versionNumber: '0.0.2',
 			currentTime: currentTime
 };
-
-// Get the user's name
-var userName = prompt('Hello, what\'s your name?');
-
-// Get the user's number
-var getPhoneNumber = prompt('Hey love, what\'s your phone number?');
-
-//Get the user's location based on phone versionNumber
