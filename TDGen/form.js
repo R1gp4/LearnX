@@ -1,6 +1,8 @@
+
+
 // grappige tekst
 function submitForm() {
-  var text1= 'Gast. Heb je een PID? Check SVInfo ;)';
+  var text= 'Gast. Heb je een PID? Check SVInfo ;)';
   // document.getElementById("frm1").submit();
   document.getElementById("output").innerHTML = text;
 }
