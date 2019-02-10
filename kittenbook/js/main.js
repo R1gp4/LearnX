@@ -2,7 +2,7 @@ function main() {
   var userName = getUserName();
   var phoneNumber = getPhoneNumber(userName);
   var location = getLocation(phoneNumber);
-  images = getImages();
+  var images = getImages();
 
 
 setInterval(function() {
@@ -12,8 +12,3 @@ setInterval(function() {
 }
 
 main();
-
-
-// document.body.innerHTML = '<h1> Hello, ' + userName + '! </h1>' +
-// 				'<p>' + kbValues.projectName + ' ' + kbValues.versionNumber +
-// 				' accessed on: ' + kbValues.currentTime + '</p>';

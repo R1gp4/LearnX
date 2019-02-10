@@ -1,5 +1,6 @@
 function getImages() {
   var images = document.querySelectorAll('div.userContentWrapper img');
+  return images;
 }
 
 function getImageHeight(image) {
@@ -28,3 +29,4 @@ function replaceImages(images, location) {
 
 }
 }
+ 
