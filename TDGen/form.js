@@ -2,7 +2,7 @@
 function showBarcodes(barcodes) {
 var visualOutput = '';
 for (i=0; i < barcodes.length; i++) {
-  visualOutput +=  barcodes[1] + '<br>' ;
+  visualOutput +=  barcodes[i] + '<br>' ;
   }
   document.getElementById("output").innerHTML = visualOutput;
 }
