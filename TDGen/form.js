@@ -11,7 +11,6 @@ for (i=0; i < barcodes.length; i++) {
 // grappige tekst
 function submitForm() {
   var text= 'Gast. Heb je een PID? Check SVInfo ;)';
-  // document.getElementById("frm1").submit();
   document.getElementById("output").innerHTML = text;
 }
 
@@ -24,7 +23,7 @@ function generateBarcode() {
   var testPieceAmount = document.getElementById("amount").value;
 
   for (i = 0; i < testPieceAmount; i++) {
-   var randomNumbers = Math.floor((Math.random() * 999999999) + 10000);
+   var randomNumbers = Math.floor((Math.random() * 99999999) + 10000);
    barcodes.push(identifier + zeroes + randomNumbers);
   }
   showBarcodes(barcodes);
@@ -45,7 +44,7 @@ function generateVFormat() {
   var SPcode = document.getElementById("SPnr").value;
 
   for (i=0; i < barcodes.length; i++) {
-    vformat +=  'A030 UAD' + '\r\n' +
+    vformat +=  'A030 ' + '\r\n' +                  // UAD
                 'V010 ' + '\r\n' +
                 'V011 ' + '\r\n' +
                 'V015 ' + SPcode +  '\r\n'  +
@@ -57,10 +56,10 @@ function generateVFormat() {
                 'V176 ' + '\r\n' +
                 'V180 ' + recipientStreetNr + '\r\n' +
                 'V190 ' + recipientPostalCode + '\r\n' +
-                'V191 ' + '\r\n' +                        //city
+                'V191 ' + '\r\n' +                        // city
                 'V800 ' + shipperNumber + '\r\n' +
-                'V999  Z' + '\r\n' +
-                'Z999  Z' + '\r\n';
+                'V999 ' + '\r\n' +
+                'Z999 ' + '\r\n';
   }
   // document.getElementById("message").innerHTML = vformat;
   return vformat;
@@ -70,9 +69,13 @@ function generateVFormat() {
 function sendMail() {
     var messageBody = generateVFormat();
     var subject = document.getElementById("fname").value;
+    var txt = '.txt';
+    var filename = prompt('Choose your filename:') + txt;
+    download(messageBody, filename, 'txt');
+
     document.location.href = "mailto:it.services@dhl.com?subject="
         + encodeURIComponent(subject)
-        + "&body=" + encodeURIComponent(messageBody);
+        + "&body=" + encodeURIComponent('messageBody');
 
 }
 
@@ -80,13 +83,7 @@ function sendMail() {
 
 
 //
-// // download text file (not yet well configured)
-// function barcodeView(text, name, type) {
-//     var a = document.getElementById("a");
-//     var file = new Blob([text], {type: type});
-//     a.href = URL.createObjectURL(file);
-//     a.download = name;
-//   }
+
 
 
 
