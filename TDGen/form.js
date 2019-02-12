@@ -72,6 +72,15 @@ function sendMail() {
 
 }
 
+
+
+$("#save-btn").click(function() {
+  var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "testfile1.txt");
+});
+
+
+
 //
 // // download text file (not yet well configured)
 // function barcodeView(text, name, type) {
