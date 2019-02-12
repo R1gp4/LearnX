@@ -19,18 +19,20 @@ body {
   background-color: lightgreen;
   border-radius: 25px;
   padding-top: 20px;
-  padding-bottom: 20px
+  padding-bottom: 20px;
+  column-span:2;
 
 }
 
-#form {
+.form {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
   column-count: 2;
-  column-span:2;
-  display: table;
   width: 90%;
   margin: 0 auto;
   background-color: lightgreen;
 }
+
 
 #terminal {
   display: table;

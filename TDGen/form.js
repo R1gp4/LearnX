@@ -62,7 +62,7 @@ function generateVFormat() {
   return vformat;
 }
 
-
+// prepares an e-mail in default Mail application
 function sendMail() {
     var messageBody = generateVFormat();
     var subject = document.getElementById("fname").value;
