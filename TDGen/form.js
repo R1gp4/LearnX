@@ -38,23 +38,27 @@ function generateVFormat() {
   var recipientName = document.getElementById("fname").value;
   var recipientPostalCode = document.getElementById("postalcode").value;
   var recipientStreetNr = document.getElementById("streetnr").value;
-  var shipperName = document.getElementById("shname").value;
+  var recipientEmail = document.getElementById("emailaddr").value;
+  var recipientPhoneNumber = document.getElementById("telnr").value;
+  var shipperName = document.getElementById("verladernm").value;
+  var shipperNumber = document.getElementById("verladernr").value;
+  var SPcode = document.getElementById("SPnr").value;
 
   for (i=0; i < barcodes.length; i++) {
     vformat +=  'A030 UAD' + '\r\n' +
                 'V010 ' + '\r\n' +
                 'V011 ' + '\r\n' +
-                'V015 ' + 'NL-306261' +  '\r\n'  +
+                'V015 ' + SPcode +  '\r\n'  +
                 'V020 ' + barcodes[i] + '\r\n' +
                 'V025 ' + '\r\n' +
                 'V110 ' + shipperName + '\r\n' +
                 'V170 ' + recipientName + '\r\n' +
-                'V174 ' + 'recipientPhoneNumber' + '\r\n' + //phoneNumber
+                'V174 ' + recipientPhoneNumber + '\r\n' + //phoneNumber
                 'V176 ' + '\r\n' +
                 'V180 ' + recipientStreetNr + '\r\n' +
                 'V190 ' + recipientPostalCode + '\r\n' +
-                'V191 ' + 'Recipient city' + '\r\n' +
-                'V800 ' + '79561103' + '\r\n' +
+                'V191 ' + '\r\n' +                        //city
+                'V800 ' + shipperNumber + '\r\n' +
                 'V999  Z' + '\r\n' +
                 'Z999  Z' + '\r\n';
   }
@@ -72,12 +76,6 @@ function sendMail() {
 
 }
 
-
-
-$("#save-btn").click(function() {
-  var blob = new Blob(["test text"], {type: "text/plain;charset=utf-8"});
-  saveAs(blob, "testfile1.txt");
-});
 
 
 
