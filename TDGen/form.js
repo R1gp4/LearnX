@@ -1,4 +1,12 @@
 
+function showBarcodes(barcodes) {
+var visualOutput = '';
+for (i=0; i < barcodes.length; i++) {
+  visualOutput +=  barcodes[1] + '<br>' ;
+  }
+  document.getElementById("output").innerHTML = visualOutput;
+}
+
 
 // grappige tekst
 function submitForm() {
@@ -19,6 +27,7 @@ function generateBarcode() {
    var randomNumbers = Math.floor((Math.random() * 999999999) + 10000);
    barcodes.push(identifier + zeroes + randomNumbers);
   }
+  showBarcodes(barcodes);
   return barcodes;
 }
 
@@ -73,12 +82,7 @@ function sendMail() {
 //   }
 
 
-  // var visualOutput = '';
-  // var barcodeList = barcodes;
-  // for (i=0; i < barcodes.length; i++) {
-  //   visualOutput +=  barcodes[1] + '<br>' ;
-  //   document.getElementById("message").innerHTML = visualOutput;
-  // }
+
 
 
 
