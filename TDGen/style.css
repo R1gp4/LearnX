@@ -67,6 +67,7 @@ input[type=text]:focus {
 
 .button {
   box-shadow: 0 0 7px darkgreen;
+  background-color: white;
 }
 
 .button:focus {
