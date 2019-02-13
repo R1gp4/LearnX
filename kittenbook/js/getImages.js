@@ -15,10 +15,10 @@ function replaceImages(images, location) {
   var baseImageUrl, height, width, image;
   switch (location) {
     case 'Silicon Valley':
-      baseImageUrl = 'http://www.placepuppy.it';
+      baseImageUrl = 'https://www.placepuppy.it';
       break;
     default:
-      baseImageUrl = 'http://placekitten.com/g/';
+      baseImageUrl = 'https://placekitten.com/g/';
       break;
   }
   for (var i=0, len = images.length; i<len; i++) {
@@ -29,4 +29,3 @@ function replaceImages(images, location) {
 
 }
 }
- 

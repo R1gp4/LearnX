@@ -41,13 +41,13 @@ function generateVFormat() {
   var recipientPhoneNumber = document.getElementById("telnr").value;
   var shipperName = document.getElementById("verladernm").value;
   var shipperNumber = document.getElementById("verladernr").value;
-  var SPcode = document.getElementById("SPnr").value;
+  var sPcode = document.getElementById("SPnr").value;
 
   for (i=0; i < barcodes.length; i++) {
     vformat +=  'A030 ' + '\r\n' +                  // UAD
                 'V010 ' + '\r\n' +
                 'V011 ' + '\r\n' +
-                'V015 ' + SPcode +  '\r\n'  +
+                'V015 ' + sPcode +  '\r\n'  +
                 'V020 ' + barcodes[i] + '\r\n' +
                 'V025 ' + '\r\n' +
                 'V110 ' + shipperName + '\r\n' +
